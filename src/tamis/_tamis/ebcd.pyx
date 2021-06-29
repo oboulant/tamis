@@ -22,4 +22,3 @@ cpdef ebcd_core(double[:,:] signal, double[:] weights, double lbd, double tol = 
     U_list = [el for el in res.U[:n_samples*n_dims]]
     U_arr = np.array(U_list).reshape((n_samples, n_dims))
     return res.n_A, A_arr, U_arr
-
