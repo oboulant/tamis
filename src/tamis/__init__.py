@@ -1,1 +1,1 @@
-from .tamis import ebcd
+from ._tamis.ebcd import ebcd_core as ebcd
