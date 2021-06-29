@@ -7,7 +7,7 @@ This repository is the Python binding of the C implementation of [https://github
 ## Local Build
 
 If you are using `bash` :
-```zsh
+```bash
 > python -m pip install .[dev,display]
 ```
 
