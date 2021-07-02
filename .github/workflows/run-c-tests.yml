@@ -1,0 +1,20 @@
+name: Run C tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  c-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Compile C tests
+      run: |
+        cd ./tests/c/
+        make test
+    - name: Run C tests
+      run: |
+        ./test
