@@ -19,3 +19,6 @@ jobs:
       run: |
         cd ./tests/c/
         ./test
+    - name: Clean
+      run: |
+        make clean
