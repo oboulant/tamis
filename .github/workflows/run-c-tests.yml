@@ -17,4 +17,5 @@ jobs:
         make test
     - name: Run C tests
       run: |
+        cd ./tests/c/
         ./test
