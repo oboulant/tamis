@@ -52,7 +52,9 @@ static inline double frobenius_norm(const double *Y, const int n_samples, const 
 static inline void center_signal(const double *signal, const int n_samples, const int n_dims, double **res)
 {
     int i, j;
-    double col_sum[n_dims];
+    double *col_sum;
+
+    col_sum = (double*)malloc(n_dims * sizeof(double));
 
     // Compute sum for each column
     for (j=0 ; j<n_dims ; j++)
@@ -72,6 +74,8 @@ static inline void center_signal(const double *signal, const int n_samples, cons
             (*res)[i*n_dims + j] = signal[i*n_dims + j] - col_sum[j];
         }
     }
+
+    free(col_sum);
 
     return;
 }

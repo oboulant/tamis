@@ -1,6 +1,6 @@
 test:
 	cd ./tests/c/ && $(MAKE) test && ./test
-	# python -m pytest
+	python -m pytest
 
 .PHONY: clean
 
