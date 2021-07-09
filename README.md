@@ -29,3 +29,11 @@ If you wish to contribute, please install the pre-commit hooks. If you performed
 ```zsh
 > python -m examples.example
 ```
+
+## Run tests
+
+From the top directory :
+
+```
+> make test
+```
