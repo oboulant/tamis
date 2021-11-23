@@ -24,7 +24,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install tamis
       run: |
-        python -m pip install pip==21.0.1
+        python -m pip install pip
         python -m pip install .[dev,test]
     - name: Test with pytest
       run: |
