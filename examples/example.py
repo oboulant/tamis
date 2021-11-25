@@ -13,21 +13,24 @@ def get_default_weights(n):
 #   Generate signal
 #######################################
 n, dim = 500, 3  # number of samples, dimension
-n_bkps, sigma = 3, 1  # number of change points, noise standard deviation
-signal, bkps = rpt.pw_constant(n, dim, n_bkps, noise_std=sigma)
+n_bkps, sigma = 3, 0.2  # number of change points, noise standard deviation
+signal, bkps = rpt.pw_constant(n, dim, n_bkps, noise_std=sigma, seed=1234)
 
 #######################################
 #   Compute change points
 #######################################
 weights = get_default_weights(n)
-n_A, A, U = tam.ebcd(signal, weights, 60.0)
+regularization_lambda = 30.0
+n_A, A, U = tam.ebcd(signal, weights, regularization_lambda)
 
 
 #######################################
 #   Communicate on results
 #######################################
-print(f"There are {n_A} break points are :")
-print(A)
+print(f"{n_A} break points found :")
+print(list(A))
+print(f"True break points are :")
+print(bkps)
 
 rpt.display(signal, bkps, A)
 plt.show()
