@@ -90,3 +90,7 @@ From the top directory :
 ```
 > make test
 ```
+
+It is to be noted that this repository being just a wrapper on the C implementation performed in [here](https://github.com/oboulant/block-coordinate-descent), tests in python only perform a high level test (we check that with a multidimensional signal without any noise, it outputs the true break points).
+
+Unit tests are performed in C.
