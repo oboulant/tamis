@@ -85,12 +85,21 @@ plt.show()
 
 ## Run tests
 
-### Python tests
+### All tests
 
-From the top directory :
+In order to start both tests in C and Python, from the top directory :
 
 ```zsh
-> make test
+> make test && make clean
+```
+
+### Python test
+
+The package has to be installed with the `.[dev,test]` options (so that `pytest` is installed)
+
+```zsh
+> python -m pip install .[dev,test]
+> python -m pytest
 ```
 
 It is to be noted that this repository being just a wrapper on the C implementation, tests in python only perform a high level test (we check that with a multidimensional signal without any noise, it outputs the true break points).
