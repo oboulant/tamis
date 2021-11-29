@@ -1,6 +1,6 @@
 # tamis
 
-Implementation in C, wrapped in Python of the exact solution by Block Coordinate Descent for fast detection of multiple change-points.
+Python wrapping of an implementation in C of the exact solution by Block Coordinate Descent for fast detection of multiple change-points.
 
 It follows the following paper :
 
@@ -10,9 +10,9 @@ The Matlab implementation by the authors can be found [here](https://members.cbi
 
 Details about the pseudo code by the same authors can be found [here](https://hal.archives-ouvertes.fr/hal-00602121).
 
-This repository is the Python binding of the C implementation of [https://github.com/oboulant/block-coordinate-descent](https://github.com/oboulant/block-coordinate-descent).
-
 ## Local Build
+
+A local build requires to have a working C compilation suite.
 
 If you are using `bash` :
 ```bash
@@ -28,7 +28,7 @@ If you are using `zsh` :
 
 If you wish to contribute, please install the pre-commit hooks. If you performed a previous local install with `python -m pip install .\[dev,display\]`, then the `pre-commit` package should already be installed. Then, you just have to tell `pre-commit` to install the hooks.
 
-```
+```zsh
 > pre-commit install
 ```
 
@@ -85,12 +85,31 @@ plt.show()
 
 ## Run tests
 
-From the top directory :
+### All tests
 
-```
-> make test
+In order to start both tests in C and Python, from the top directory :
+
+```zsh
+> make test && make clean
 ```
 
-It is to be noted that this repository being just a wrapper on the C implementation performed in [here](https://github.com/oboulant/block-coordinate-descent), tests in python only perform a high level test (we check that with a multidimensional signal without any noise, it outputs the true break points).
+### Python test
+
+The package has to be installed with the `.[dev,test]` options (so that `pytest` is installed)
+
+```zsh
+> python -m pip install .[dev,test]
+> python -m pytest
+```
+
+It is to be noted that this repository being just a wrapper on the C implementation, tests in python only perform a high level test (we check that with a multidimensional signal without any noise, it outputs the true break points).
 
 Unit tests are performed in C.
+
+### C tests
+
+From the top directory:
+
+```zsh
+> (cd tests/c && make test && ./test && make clean)
+```
