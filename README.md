@@ -14,6 +14,10 @@ Details about the pseudo code by the same authors can be found [here](https://ha
 
 A local build requires to have a working C compilation suite.
 
+### From the source
+
+In case you have cloned the repo on your machine and wish to build from the source :
+
 If you are using `bash` :
 ```bash
 > python -m pip install .[dev,display]
@@ -23,6 +27,18 @@ If you are using `zsh` :
 ```zsh
 > python -m pip install .\[dev,display\]
 ```
+
+### From the github repository
+
+You can also build using `pip` by providing the link to the remote repo :
+
+If you are using `zsh` :
+```zsh
+> pip install git+https://github.com/oboulant/tamis.git
+```
+
+This still need to have configured on the machine a working C compilation chain.
+
 
 ## Contributing
 
